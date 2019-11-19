@@ -1,0 +1,14 @@
+<div class="sideNav_parent">
+
+    <div matRipple (click)="slideDown = !slideDown" class="sideNav_group">
+        <mat-icon class="sideNav_iconArrow" [class.sideNav_iconArrow-rotate]="slideDown">arrow_right</mat-icon>
+        <mat-icon [matBadgeHidden]="!isOpen" [matBadge]="totalChildNotice" matBadgeColor="warn" matBadgeSize="small"  class="sideNav_icon">{{icon}}</mat-icon>
+        <span class="sideNav_text">{{title}}</span>
+        <span *ngIf="!slideDown">{{totalChildNotice}}</span>
+    </div>
+
+    <div [@slideUpDown]="slideDown" class="sideNav_child">
+        <ng-content></ng-content>
+    </div>
+
+</div>

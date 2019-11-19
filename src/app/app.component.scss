@@ -1,0 +1,44 @@
+$full-sideNav-width: 280px;
+$small-sideNav-width: 72px;
+
+:host {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: white;
+}
+
+.matSidenavContainer {
+  height: 100%;
+}
+
+.matSidenav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $full-sideNav-width;
+  background: #fafafa;
+  // border-right: none;
+  transition: width 0.3s;
+  &_smallNav {
+    width: $small-sideNav-width;
+  }
+}
+
+.matSidenavContent {
+  transition: margin-left 0.3s;
+  margin-left: $full-sideNav-width !important;
+
+  &_smallNav {
+    margin-left: $small-sideNav-width !important;
+  }
+}
+
+.matTabNavBar{
+  background: white;
+}
+.sticky_0{
+  position: sticky;
+  top:0;
+  z-index: 2;
+}

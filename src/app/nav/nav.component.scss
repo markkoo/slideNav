@@ -1,0 +1,121 @@
+$color-black-4: rgba(0, 0, 0, 0.04);
+$color-black-12: rgba(0, 0, 0, 0.12);
+$color-black-87: rgba(0, 0, 0, 0.87);
+$color-black-54: rgba(0, 0, 0, 0.54);
+$full-sideNav-width: 280px;
+$small-sideNav-width: 72px;
+$color-primary: #3f51b5;
+
+%smallNavRadius {
+  border-radius: 20px;
+  width: 40px;
+  left: 16px;
+}
+
+:host(.matSidenav_smallNav) {
+  .sideNav_a {
+    margin-right: 6px;
+    &:before {
+      @extend %smallNavRadius;
+    }
+  }
+}
+.sideNav {
+  padding: 8px 0;
+  height: 100%;
+  overflow: scroll;
+  &:hover {
+    &::-webkit-scrollbar-thumb {
+      background: rgba(black, 0.3);
+    }
+  }
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+  &_a {
+    text-decoration: none;
+    display: grid;
+    grid-template-columns: 20px auto 20px;
+    column-gap: 16px;
+    align-items: center;
+    height: 40px;
+    padding: 0 16px 0 26px;
+    color: $color-black-87;
+    // overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    // border-radius: 0 20px 20px 0;
+    position: relative;
+    &:hover {
+      &:before {
+        background: $color-black-12;
+      }
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &_active {
+    color: $color-primary;
+    &:hover {
+      &:before {
+        background: $color-black-4;
+      }
+    }
+    &:before {
+      background: $color-black-4;
+      transition: 0.3s;
+    }
+  }
+  &_parent {
+    overflow: hidden;
+  }
+  &_child {
+    overflow: hidden;
+  }
+  &_icon {
+    $size: 20px;
+    font-size: $size;
+    width: $size;
+    height: $size;
+    .sideNav_child & {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .matSidenav_smallNav & {
+      opacity: 1;
+    }
+  }
+  &_iconArrow {
+    $size: 20px;
+    font-size: $size;
+    width: $size;
+    height: $size;
+    &-rotate {
+      transform: rotate(-180deg);
+    }
+  }
+  &_text {
+    .sideNav_parent & {
+      color: $color-black-54;
+    }
+    .sideNav_active & {
+      color: $color-primary;
+    }
+  }
+  @media (hover: none) {
+    overflow: scroll;
+  }
+}

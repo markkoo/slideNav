@@ -1,0 +1,52 @@
+<mat-toolbar>
+    <button (click)="smallNav = !smallNav" mat-icon-button>
+        <mat-icon>info</mat-icon>
+    </button>
+    <button (click)="sidenav.toggle()" mat-icon-button>
+        <mat-icon>info</mat-icon>
+    </button>
+    Header
+</mat-toolbar>
+
+<mat-sidenav-container class="matSidenavContainer">
+    <mat-sidenav #sidenav mode="side" opened [class.matSidenav_smallNav]="smallNav" class="matSidenav">
+        <app-nav-container>
+            <app-nav title="SO Document" link="so-document" icon="info" totalNotice="15" [isOpen]="smallNav"></app-nav>
+            <app-nav title="SO Document" link="so-document" icon="info" totalNotice="15" [isOpen]="smallNav"></app-nav>
+            <app-nav title="SO Document" link="so-document" icon="info" totalNotice="15" [isOpen]="smallNav"></app-nav>
+            <app-nav title="SO Document" link="so-document" icon="info" totalNotice="15" [isOpen]="smallNav"></app-nav>
+            <app-nav title="SO Document" link="so-document" icon="info" totalNotice="15" [isOpen]="smallNav"></app-nav>
+            <app-nav-group title="Document" icon="info" [isOpen]="smallNav">
+                <app-nav title="SO Document" link="so-document" icon="info" totalNotice="15" [isOpen]="smallNav"></app-nav>
+                <app-nav title="SO Document" link="so-document" icon="info" totalNotice="15" [isOpen]="smallNav"></app-nav>
+                <app-nav title="SO Document" link="so-document" icon="info" totalNotice="15" [isOpen]="smallNav"></app-nav>
+                <app-nav title="SO Document" link="so-document" icon="info" totalNotice="15" [isOpen]="smallNav"></app-nav>
+            </app-nav-group>
+        </app-nav-container>
+    </mat-sidenav>
+
+    <mat-sidenav-content [class.matSidenavContent_smallNav]="smallNav" class="matSidenavContent">
+        <nav mat-tab-nav-bar class="matTabNavBar sticky_0">
+            <a mat-tab-link *ngFor="let link of ['path-a','path-b']" [routerLink]="link" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
+                {{link}}
+            </a>
+        </nav>
+        <router-outlet></router-outlet>
+
+        <mat-tab-group class="matTabGroup">
+            <mat-tab label="First">
+                asd
+                <div style="height:100vh">asd</div>
+                asd
+            </mat-tab>
+            <mat-tab label="Second"> Content 2 </mat-tab>
+            <mat-tab label="Third"> Content 3 </mat-tab>
+        </mat-tab-group>
+
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+<!-- <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false"> -->
