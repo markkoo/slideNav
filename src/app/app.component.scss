@@ -25,14 +25,14 @@ $small-sideNav-width: 72px;
   }
 }
 
-.matSidenavContent {
-  transition: margin-left 0.3s;
-  margin-left: $full-sideNav-width !important;
+// .matSidenavContent {
+//   transition: margin-left 0.3s;
+//   margin-left: $full-sideNav-width !important;
 
-  &_smallNav {
-    margin-left: $small-sideNav-width !important;
-  }
-}
+//   &_smallNav {
+//     margin-left: $small-sideNav-width !important;
+//   }
+// }
 
 .matTabNavBar{
   background: white;

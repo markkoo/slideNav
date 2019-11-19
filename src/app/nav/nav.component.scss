@@ -2,8 +2,6 @@ $color-black-4: rgba(0, 0, 0, 0.04);
 $color-black-12: rgba(0, 0, 0, 0.12);
 $color-black-87: rgba(0, 0, 0, 0.87);
 $color-black-54: rgba(0, 0, 0, 0.54);
-$full-sideNav-width: 280px;
-$small-sideNav-width: 72px;
 $color-primary: #3f51b5;
 
 %smallNavRadius {
@@ -12,35 +10,11 @@ $color-primary: #3f51b5;
   left: 16px;
 }
 
-:host(.matSidenav_smallNav) {
-  .sideNav_a {
-    margin-right: 6px;
-    &:before {
-      @extend %smallNavRadius;
-    }
-  }
-}
 .sideNav {
-  padding: 8px 0;
-  height: 100%;
-  overflow: scroll;
-  &:hover {
-    &::-webkit-scrollbar-thumb {
-      background: rgba(black, 0.3);
-    }
-  }
-  &::-webkit-scrollbar {
-    width: 4px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    background: transparent;
-  }
   &_a {
     text-decoration: none;
     display: grid;
     grid-template-columns: 20px auto 20px;
-    column-gap: 16px;
     align-items: center;
     height: 40px;
     padding: 0 16px 0 26px;
@@ -67,6 +41,10 @@ $color-primary: #3f51b5;
       height: 100%;
     }
   }
+  &_group {
+    grid-template-columns: 20px 20px auto 20px;
+    padding: 0 16px 0 6px;
+  }
   &_active {
     color: $color-primary;
     &:hover {
@@ -84,30 +62,26 @@ $color-primary: #3f51b5;
   }
   &_child {
     overflow: hidden;
+    padding-left: 6px;
   }
   &_icon {
     $size: 20px;
     font-size: $size;
     width: $size;
     height: $size;
-    .sideNav_child & {
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-    .matSidenav_smallNav & {
-      opacity: 1;
-    }
   }
   &_iconArrow {
     $size: 20px;
     font-size: $size;
     width: $size;
     height: $size;
+    transition: 0.3s;
     &-rotate {
-      transform: rotate(-180deg);
+      transform: rotate(90deg);
     }
   }
   &_text {
+    margin-left: 16px;
     .sideNav_parent & {
       color: $color-black-54;
     }

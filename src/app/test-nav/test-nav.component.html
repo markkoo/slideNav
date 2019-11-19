@@ -1,75 +1,23 @@
-<mat-toolbar>
-  <button (click)="smallNav = !smallNav" mat-icon-button>
-    <mat-icon>info</mat-icon>
-  </button>
-  <button (click)="sidenav.toggle()" mat-icon-button>
-    <mat-icon>info</mat-icon>
-  </button>
-  Header
-</mat-toolbar>
-
-<mat-sidenav-container class="matSidenavContainer">
-  <mat-sidenav #sidenav mode="side" opened [class.matSidenav_smallNav]="smallNav" class="matSidenav">
-    <nav class="sideNav">
-
-      <a matRipple *ngFor="let item of [1,2,3,4]; let first = first" href="#" class="sideNav_a">
-        <mat-icon [matBadgeHidden]="!smallNav" matBadge="15" matBadgeColor="warn" matBadgeSize="small" class="sideNav_icon">info</mat-icon>
-        <span class="sideNav_text">Overview</span>
-        <span>15</span>
-      </a>
-
-      <mat-divider class="matDivider"></mat-divider>
-
-      <div class="sideNav_parent">
-
-        <div matRipple (click)="slideDown = !slideDown" class="sideNav_a">
-          <mat-icon class="sideNav_icon">info</mat-icon>
-          <span class="sideNav_text">Overview</span>
-          <mat-icon class="sideNav_iconArrow" [class.sideNav_iconArrow-rotate]="slideDown">expand_more</mat-icon>
-        </div>
-
-        <div [@slideUpDown]="slideDown" class="sideNav_child">
-          <a matRipple *ngFor="let item of [1,2,3,4]; let first = first" [class.sideNav_active]="first" href="#" class="sideNav_a">
-            <mat-icon matBadge="15" matBadgeColor="warn" matBadgeSize="small" class="sideNav_icon">info</mat-icon>
-            <span class="sideNav_text">Overview</span>
-            <span>15</span>
-          </a>
-        </div>
-
-      </div>
-
-
-      <mat-divider class="matDivider"></mat-divider>
-    </nav>
+<mat-sidenav-container class="sidenav-container" autosize="true">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item href="#">Link 1 <span *ngIf="hideText">Link 1 Link 1</span></a>
+      <a mat-list-item href="#">Link 2</a>
+      <a mat-list-item href="#">Link 3</a>
+    </mat-nav-list>
   </mat-sidenav>
-
-  <mat-sidenav-content [class.matSidenavContent_smallNav]="smallNav" class="matSidenavContent">
-    <nav mat-tab-nav-bar>
-      <a mat-tab-link *ngFor="let link of ['path-a','path-b']" [routerLink]="link" routerLinkActive #rla="routerLinkActive" [active]="rla.isActive">
-        {{link}}
-      </a>
-    </nav>
-
-    <!-- <mat-tab-group class="matTabGroup">
-      <mat-tab label="First">
-        <div class="flexContainer">
-          <div class="flexContainer_header">asd</div>
-          <div class="flexContainer_content">
-            <div class="flexContainer_scrollable">
-              <div style="height:100vh">asd</div>
-              asd
-            </div>
-          </div>
-        </div>
-      </mat-tab>
-      <mat-tab label="Second"> Content 2 </mat-tab>
-      <mat-tab label="Third"> Content 3 </mat-tab>
-    </mat-tab-group> -->
-
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <span>slideNav</span>
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        (click)="drawer.toggle()">asd</button>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <button (click)="hideText = true">hideText</button>
   </mat-sidenav-content>
 </mat-sidenav-container>
-
-
-
-
-<!-- <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false"> -->
