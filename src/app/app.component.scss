@@ -1,4 +1,4 @@
-$full-sideNav-width: 280px;
+$full-sideNav-width: 256px;
 $small-sideNav-width: 72px;
 
 :host {
@@ -17,9 +17,7 @@ $small-sideNav-width: 72px;
   align-items: center;
   justify-content: center;
   width: $full-sideNav-width;
-  background: #fafafa;
-  // border-right: none;
-  transition: width 0.3s;
+  background: white;
   &_smallNav {
     width: $small-sideNav-width;
   }

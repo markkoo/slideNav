@@ -15,4 +15,7 @@
   &::-webkit-scrollbar-thumb {
     background: transparent;
   }
+  @media (hover: none) {
+    overflow: scroll;
+  }
 }

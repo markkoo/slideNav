@@ -1,4 +1,4 @@
-<div matRipple (click)="showChild = !showChild" class="sideNav_group">
+<div (click)="showChild = !showChild" class="sideNav_group">
     <mat-icon class="sideNav_iconArrow" [class.sideNav_iconArrow-rotate]="showChild">arrow_right</mat-icon>
     <mat-icon [matBadgeHidden]="!isOpen" [matBadge]="totalChildNotice" matBadgeColor="warn" matBadgeSize="small" class="sideNav_icon">{{icon}}</mat-icon>
     <span class="sideNav_text">{{title}}</span>
