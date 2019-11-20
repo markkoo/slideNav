@@ -3,7 +3,12 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss']
+  styleUrls: ['./nav.component.scss'],
+  // tslint:disable-next-line: no-host-metadata-property
+  host: {
+    '[class.gotParent]': 'gotParent',
+    '[class.close]': 'opened'
+  }
 })
 export class NavComponent implements OnInit {
 
@@ -20,7 +25,10 @@ export class NavComponent implements OnInit {
   totalNotice: number;
 
   @Input()
-  isOpen: boolean;
+  opened: boolean;
+
+  @Input()
+  gotParent: false;
 
   constructor() { }
 

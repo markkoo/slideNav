@@ -1,5 +1,5 @@
 <a [routerLink]="link" routerLinkActive="sideNav_link-active" class="sideNav sideNav_link" [class.sideNav-gotNotice]="totalNotice > 0">
-    <mat-icon [matBadgeHidden]="!isOpen" [matBadge]="totalNotice" matBadgeColor="warn" matBadgeSize="small" class="sideNav_icon">{{icon}}</mat-icon>
+    <mat-icon [matBadgeHidden]="!opened" [matBadge]="totalNotice" matBadgeColor="warn" matBadgeSize="small" class="sideNav_icon">{{icon}}</mat-icon>
     <span class="sideNav_text">{{title}}</span>
     <span class="sideNav_totalNotice">{{totalNotice}}</span>
 </a>

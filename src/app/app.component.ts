@@ -7,7 +7,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  smallNav = false;
+  smallNav = true;
 
   save() { }
   undo() { }

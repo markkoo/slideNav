@@ -13,58 +13,58 @@ $color-totalNotice: #5f6368;
   left: 16px;
 }
 
+:host(.close) {
+  .sideNav {
+    &_group {
+      padding-left: 26px;
+      width: 32px;
+      padding-left: 6px;
+      margin-left: 20px;
+      border-radius: 16px;
+    }
+    &_iconArrow {
+      display: none;
+    }
+    &_text {
+      opacity: 0;
+      transition: none;
+    }
+  }
+}
 
 .sideNav {
+  & > * {
+      position: relative; // set default for higher then background
+  }
   &_group {
     position: relative;
     text-decoration: none;
     display: grid;
+    grid-template-columns: 20px auto 20px;
     align-items: center;
     height: 32px;
-    // grid-template-columns: 20px auto 20px;
-    // padding: 0 12px 0 26px;
-    grid-template-columns: 20px 20px auto 20px;
-    padding: 0 16px 0 6px;
+    padding: 0 12px 0 26px;
     color: $color-black-87;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     cursor: pointer;
 
     font-size: 14px;
     color: $color-normal;
     letter-spacing: 0.2px;
+    
+    border-radius: 0 16px 16px 0;
+    transition: width .3s;
+    width: 246px;
+
     &-active {
       color: $color-primary;
       font-weight: 700;
-      &:before {
-        background: lighten($color-primary, 45%);
-      }
+      background: lighten($color-primary, 45%);
     }
     &:hover {
-      &:before {
-        background: $color-black-5;
-      }
+      background: $color-black-5;
     }
-    &:before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -12px;
-      width: 100%;
-      height: 100%;
-      border-radius: 0 20px 20px 0;
-      //   transition: 0.3s;
-    }
-  }
-  &_group {
-    grid-template-columns: 20px 20px auto 20px;
-    padding: 0 16px 0 6px;
-  }
-  &_child {
-    padding-left: 12px;
   }
   &_icon {
-    position: relative; // higher then background
     $size: 20px;
     font-size: $size;
     width: $size;
@@ -76,29 +76,34 @@ $color-totalNotice: #5f6368;
     }
   }
   &_iconArrow {
-    position: relative; // higher then background
+    position: absolute !important;
+    top: 6px;
+    left: 5px;
     $size: 20px;
     font-size: $size;
     width: $size;
     height: $size;
-    transition: 0.3s;
+    color: $color-normal-icon;
+    transition: none;
     &-rotate {
       transform: rotate(90deg);
     }
   }
   &_text {
-    position: relative; // higher then background
     margin-left: 16px;
-    padding-right:8px;
-    .sideNav_parent & {
-      color: $color-black-54;
-    }
-    .sideNav_linkctive & {
-      color: $color-primary;
+    padding-right: 8px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: opacity .2s linear;
+
+    .sideNav-gotTotalNotice & {
+      font-weight: 700;
     }
   }
   &_totalNotice {
     font-size: 12px;
+    text-align: right;
     color: $color-totalNotice;
     .sideNav_link-active & {
       color: $color-primary;

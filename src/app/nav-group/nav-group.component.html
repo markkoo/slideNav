@@ -1,10 +1,10 @@
-<div (click)="showChild = !showChild" class="sideNav_group">
-    <mat-icon class="sideNav_iconArrow" [class.sideNav_iconArrow-rotate]="showChild">arrow_right</mat-icon>
-    <mat-icon [matBadgeHidden]="!isOpen" [matBadge]="totalChildNotice" matBadgeColor="warn" matBadgeSize="small" class="sideNav_icon">{{icon}}</mat-icon>
+<div (click)="showChild = !showChild" class="sideNav sideNav_group" [class.sideNav-gotTotalNotice]="!showChild && totalChildNotice > 0">
+    <mat-icon [matBadgeHidden]="!opened || (opened && showChild)" [matBadge]="totalChildNotice" matBadgeColor="warn" matBadgeSize="small" class="sideNav_icon">{{icon}}</mat-icon>
     <span class="sideNav_text">{{title}}</span>
-    <span *ngIf="!showChild">{{totalChildNotice}}</span>
+    <span *ngIf="!showChild" class="sideNav_totalNotice">{{totalChildNotice}}</span>
+    <mat-icon class="sideNav_iconArrow" [class.sideNav_iconArrow-rotate]="showChild">arrow_right</mat-icon>
 </div>
 
-<div *ngIf="showChild" class="sideNav_child">
+<ng-container *ngIf="showChild">
     <ng-content></ng-content>
-</div>
+</ng-container>
